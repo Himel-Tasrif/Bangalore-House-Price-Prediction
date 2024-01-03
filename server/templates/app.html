@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bangalore Home Price Prediction</title>
+    <!--<link rel="stylesheet" href="./static/app.css"> -->
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="./static/app.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: white;
+        }
+
+        .container {
+            display: flex;
+            width: 100%;
+            height: 100vh;
+        }
+
+        .input-section,
+        .output-section {
+            flex: 1;
+        }
+
+        .input-section {
+            background: #204579;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+            padding: 20px;
+        }
+
+    h1 {
+    margin: 0;
+    font-size: larger;
+    color: rgb(206, 237, 121);
+}
+.input-section h1 {
+    font-size: 300%
+}
+
+h2 {
+    font-size: small;
+    margin-top: 10px;
+    color: rgb(246, 174, 57);
+}
+
+        .input-section {
+    background: #204579;
+    padding: 20px;
+    text-align: left;
+}
+
+h1, h2 {
+    margin: 0;
+}
+
+        .output-section {
+            color: #204579;
+            /*font-weight: bold;*/
+            font-size: x-large;
+            text-align: center;
+            padding: 20px;
+            position: relative;
+        }
+
+        .output-section > img {
+            width: 76%;
+            height: 40%;
+            margin-top: 20px;
+        }
+
+        .developer-info {
+    margin-top: 20px;
+}
+
+.developer-info strong {
+    font-weight: bold;
+    font-size: larger;
+}
+
+.small-text {
+    font-size: smaller;
+    color: black;
+}
+.green-text {
+    color: rgb(40, 97, 14);
+    font-weight: bold;
+}
+
+        .area{
+            width: 10%;
+            padding: 8px;
+            border-radius: 5rem;
+            margin-bottom: 15px;
+        }
+        .location {
+            width: 80%;
+            padding: 8px;
+            border-radius: 5rem;
+            margin-bottom: 15px;
+        }
+
+        .switch-field {
+            display: flex;
+            gap: 10px;
+        }
+
+        .submit {
+            width: 30%;
+            padding: 10px;
+            border-radius: 5rem;
+            background-color: #cceda5; /* Change the background color as needed */
+            color: #204579; /* Change the text color as needed */
+            cursor: pointer;
+            font-weight: bold
+        }
+h3 {
+    font-weight: bolder;
+    font-size: 150%;
+    color: rgb(254, 213, 200);
+}
+h4 {
+    font-weight: bolder;
+    font-size: 150%;
+    margin-top: 10px;
+    color: rgb(246, 174, 57);
+}
+
+        form {
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="input-section">
+            <h1>Find Your</h1>
+            <h2>Bengaluru House Price</h2>
+            <br><br><br><br>
+            <br><br><br><br>
+            <form class="form">
+                <h3>Area (Square Feet)</h3>
+                <input class="area" type="text" id="uiSqft" class="floatLabel" name="Squareft" value="1000">
+          </form>
+            <form class="form">
+
+                <h3>Bedroom</h3>
+                <div class="switch-field">
+                    <input type="radio" id="radio-bhk-1" name="uiBedrooms" value="1"/>
+                    <label for="radio-bhk-1">1</label>
+                    <input type="radio" id="radio-bhk-2" name="uiBedrooms" value="2" checked/>
+                    <label for="radio-bhk-2">2</label>
+                    <input type="radio" id="radio-bhk-3" name="uiBedrooms" value="3"/>
+                    <label for="radio-bhk-3">3</label>
+                    <input type="radio" id="radio-bhk-4" name="uiBedrooms" value="4"/>
+                    <label for="radio-bhk-4">4</label>
+                    <input type="radio" id="radio-bhk-5" name="uiBedrooms" value="5"/>
+                    <label for="radio-bhk-5">5</label>
+                </div>
+            </form>
+            <form class="form">
+                <h3>Bathroom</h3>
+                <div class="switch-field">
+                    <input type="radio" id="radio-bath-1" name="uiBathrooms" value="1"/>
+                    <label for="radio-bath-1">1</label>
+                    <input type="radio" id="radio-bath-2" name="uiBathrooms" value="2" checked/>
+                    <label for="radio-bath-2">2</label>
+                    <input type="radio" id="radio-bath-3" name="uiBathrooms" value="3"/>
+                    <label for="radio-bath-3">3</label>
+                    <input type="radio" id="radio-bath-4" name="uiBathrooms" value="4"/>
+                    <label for="radio-bath-4">4</label>
+                    <input type="radio" id="radio-bath-5" name="uiBathrooms" value="5"/>
+                    <label for="radio-bath-5">5</label>
+                </div>
+            </form>
+            <form class="form">
+                <h3>Balcony</h3>
+                <div class="switch-field">
+                    <input type="radio" id="radio-balcony-1" name="uiBalcony" value="1"/>
+                    <label for="radio-balcony-1">1</label>
+                    <input type="radio" id="radio-balcony-2" name="uiBalcony" value="2" checked/>
+                    <label for="radio-balcony-2">2</label>
+                    <input type="radio" id="radio-balcony-3" name="uiBalcony" value="3"/>
+                    <label for="radio-balcony-3">3</label>
+                    <input type="radio" id="radio-balcony-4" name="uiBalcony" value="4"/>
+                    <label for="radio-balcony-4">4</label>
+                    <input type="radio" id="radio-balcony-5" name="uiBalcony" value="5"/>
+                    <label for="radio-balcony-5">5</label>
+                </div>
+            </form>
+            <form class="form">
+                <h3>Location</h3>
+                <div>
+                    <select class="location" name="" id="uiLocations">
+                        <option value="" disabled="disabled" selected="selected">Choose a Location</option>
+                        <option>Electronic City</option>
+                        <option>Rajaji Nagar</option>
+                    </select>
+                </div>
+            </form>
+            <br><br><br>
+            <br><br><br>
+            <button class="submit" onclick="onClickedEstimatePrice()" type="button">Estimate Price</button>
+        </div>
+
+        <div class="output-section">
+            <!-- Output or estimation content goes here -->
+            <h6>House will be cost you around</h6>
+            <div id="uiEstimatedPrice" class="result"></div>
+            <img src="https://img.freepik.com/premium-photo/city-silhouette-modern-urban-landscape-high-building-illustration-white-background-city-icon_715671-2166.jpg" alt="House Image">
+            <div class="developer-info">
+                <strong>House Price Estimator</strong>
+                <br>
+                <br>
+                <br>
+                <span class="small-text">Developed by</span>
+                <br>
+                <span class="green-text">Tasrif Nur Himel</span>
+                <br>
+                <span class="small-text">Machine Learning Engineer</span>
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>
